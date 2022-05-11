@@ -29,10 +29,10 @@ namespace ApiPeliculas.Controllers
             _mapper = mapper;
         }
 
-        [AllowAnonymous]
+      //  [AllowAnonymous]
         [HttpGet]
-        [ProducesResponseType(200, Type = typeof(List<CategoriaDto>))]
-        [ProducesResponseType(400)]
+       // [ProducesResponseType(200, Type = typeof(List<CategoriaDto>))]
+        //[ProducesResponseType(400)]
         public IActionResult GetCategorias()
         {
             var listaCategorias = _ctRepo.GetCategorias();
