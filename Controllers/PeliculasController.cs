@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 
 namespace ApiPeliculas.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/Peliculas")]
     [ApiController]
-   // [ApiExplorerSettings(GroupName = "ApiPeliculas")]
-    //[ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ApiExplorerSettings(GroupName = "ApiPeliculas")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class PeliculasController : Controller
     {
         private readonly IPeliculaRepository _pelRepo;
@@ -36,7 +36,7 @@ namespace ApiPeliculas.Controllers
         /// Obtener todas las peliculas
         /// </summary>
         /// <returns></returns>
-     //   [AllowAnonymous]
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetPeliculas()
         {

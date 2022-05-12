@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ApiPeliculas.Controllers
 {
-   // [Authorize]
+    [Authorize]
     [Route("api/Categorias")]
     [ApiController]
     [ApiExplorerSettings(GroupName = "ApiPeliculasCategorias")]
