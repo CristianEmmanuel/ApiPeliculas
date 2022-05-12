@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApiPeliculas.Models
 {
-
+#pragma warning disable CS1591 // Falta el comentario XML para el tipo o miembro visible públicamente
     public class Categoria
 
     {
@@ -15,5 +15,5 @@ namespace ApiPeliculas.Models
         public string Nombre { get; set; }
         public DateTime FechaCreacion { get; set; }
     }
-
+#pragma warning restore CS1591 // Falta el comentario XML para el tipo o miembro visible públicamente
 }

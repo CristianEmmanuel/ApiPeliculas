@@ -17,11 +17,11 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace ApiPeliculas.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("api/Usuarios")]
     [ApiController]
-  //  [ApiExplorerSettings(GroupName = "ApiPeliculasUsuarios")]
-   // [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ApiExplorerSettings(GroupName = "ApiPeliculasUsuarios")]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public class UsuariosController : Controller
     {
         private readonly IUsuarioRepository _userRepo;

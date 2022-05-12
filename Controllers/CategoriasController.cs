@@ -1,14 +1,14 @@
-﻿using ApiPeliculas.Models;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using ApiPeliculas.Models;
 using ApiPeliculas.Models.Dtos;
 using ApiPeliculas.Repository.IRepository;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ApiPeliculas.Controllers
 {
@@ -81,7 +81,7 @@ namespace ApiPeliculas.Controllers
         [ProducesResponseType(201, Type = typeof(CategoriaDto))]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]        
         public IActionResult CrearCategoria([FromBody] CategoriaDto categoriaDto)
         {
             if (categoriaDto == null)
@@ -103,7 +103,7 @@ namespace ApiPeliculas.Controllers
                 return StatusCode(500, ModelState);
             }
 
-            return CreatedAtRoute("GetCategoria", new { categoriaId = categoria.Id }, categoria);
+            return CreatedAtRoute("GetCategoria", new { categoriaId = categoria.Id}, categoria);
         }
 
         /// <summary>
@@ -113,10 +113,10 @@ namespace ApiPeliculas.Controllers
         /// <param name="categoriaDto"></param>
         /// <returns></returns>
         [HttpPatch("{categoriaId:int}", Name = "ActualizarCategoria")]
-        [ProducesResponseType(204)]
+        [ProducesResponseType(204)]       
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public IActionResult ActualizarCategoria(int categoriaId, [FromBody] CategoriaDto categoriaDto)
+        public IActionResult ActualizarCategoria(int categoriaId, [FromBody]CategoriaDto categoriaDto)
         {
             if (categoriaDto == null || categoriaId != categoriaDto.Id)
             {
@@ -139,13 +139,13 @@ namespace ApiPeliculas.Controllers
         /// </summary>
         /// <param name="categoriaId"></param>
         /// <returns></returns>
-        [HttpDelete("{categoriaId:int}", Name = "BorrarCategoria")]
+        [HttpDelete("{categoriaId:int}", Name = "BorrarCategoria")]        
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status409Conflict)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public IActionResult BorrarCategoria(int categoriaId)
-        {
+        {           
             if (!_ctRepo.ExisteCategoria(categoriaId))
             {
                 return NotFound();

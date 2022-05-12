@@ -10,7 +10,7 @@ namespace ApiPeliculas.Models.Dtos
     {
         [Required(ErrorMessage = "El usuario es obligatorio")]
         public string Usuario { get; set; }
-        [Required(ErrorMessage = "El usuario es obligatorio")]
+        [Required(ErrorMessage = "El usuario es obligatorio")]       
         public string Password { get; set; }
     }
 }
